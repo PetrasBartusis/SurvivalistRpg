@@ -2,8 +2,8 @@
 <object>
   <spriteName>spr_sword</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
-  <depth>1000</depth>
+  <visible>-1</visible>
+  <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -27,47 +27,6 @@
             <kind>1</kind>
             <string>/// Initialize the weapon animation parent
 dir = 0;
-jump = false;
-
-current_step = 0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Alarm for testing the sword animation(can change sword speed)
-if(image_angle &gt;= dir - 49) {
-    current_step++;
-    if(!jump){
-        image_angle -= 180;
-        jump = true;
-    } else {
-        image_angle -= 2;
-    }
-    //animationStepArray[current_step];
-    //if(array_length_1d(animationStepArray) &lt; 3){
-       // image_angle -= animationStepArray[current_step];
-    //}
-} else {
-    instance_destroy();
-}
 </string>
           </argument>
         </arguments>
@@ -94,10 +53,6 @@ if(image_angle &gt;= dir - 49) {
 if(instance_exists(obj_player)){
     x = obj_player.x;
     y = obj_player.y;
-    if(obj_player.face==RIGHT){
-        x = obj_player.x + 4;
-        y = obj_player.y + 2;
-    }
 } else {
     instance_destroy();
 }
@@ -124,22 +79,11 @@ if(instance_exists(obj_player)){
           <argument>
             <kind>1</kind>
             <string>/// Animation
-/*depth -= y;
-if(obj_player.movement == ATTACK){
-    if(image_angle &gt;= dir - 45) {
-        current_step++;
-        if(!jump){
-            image_angle -= 175;
-            jump = true;
-        } else {
-            image_angle -= 2;
-        }
-    } else {
-        instance_destroy();
-    }
-}*/
-
-
+if(image_angle &gt;= dir - 45) {
+    image_angle -= 18;
+} else {
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>

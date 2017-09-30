@@ -132,8 +132,6 @@ if(other.id != creator){
     with (other){
         physics_apply_impulse(x, y, xforce, yforce);
     }
-    obj_view.x += random_range(-2,2); 
-    obj_view.y += random_range(-2,2); 
 }
 
 </string>
@@ -154,7 +152,7 @@ if(other.id != creator){
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>20,20</point>
-    <point>20,12</point>
+    <point>12,12</point>
+    <point>12,12</point>
   </PhysicsShapePoints>
 </object>

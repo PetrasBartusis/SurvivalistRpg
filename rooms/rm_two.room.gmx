@@ -55,13 +55,13 @@
     <instance objName="obj_wall" x="96" y="0" name="inst_5EBF0077" locked="0" code="" scaleX="17" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="0" y="320" name="inst_73EC0527" locked="0" code="" scaleX="20" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="608" y="0" name="inst_73C718D9" locked="0" code="" scaleX="1" scaleY="10" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_sprite" x="576" y="256" name="inst_CB87EC64" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_sprite" x="224" y="256" name="inst_8C19E408" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_slime" x="576" y="256" name="inst_CB87EC64" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_slime" x="224" y="256" name="inst_8C19E408" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_view" x="192" y="96" name="inst_090EEE56" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_sprite" x="448" y="64" name="inst_8A9D4225" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_sprite" x="288" y="64" name="inst_D833B728" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_sprite" x="384" y="288" name="inst_140FC7D9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_door" x="64" y="16" name="inst_FED2CC50" locked="0" code="// put the player here:&#xA;new_room = rm_one;&#xA;new_x = room_width-64;&#xA;new_y = room_height-100;&#xA;" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_slime" x="448" y="64" name="inst_8A9D4225" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_slime" x="288" y="64" name="inst_D833B728" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_slime" x="384" y="288" name="inst_140FC7D9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_door" x="64" y="16" name="inst_FED2CC50" locked="0" code="// put the player here:&#xA;new_room = rm_one;&#xA;new_x = room_width-64;&#xA;new_y = room_height-52;" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy_chinlin" x="112" y="240" name="inst_B79B09CD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy_chinlin" x="320" y="160" name="inst_2C275737" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy_chinlin" x="464" y="208" name="inst_AD9606BB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

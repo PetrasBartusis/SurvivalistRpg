@@ -12,15 +12,19 @@
   </sounds>
   <sprites name="sprites">
     <sprites name="Player">
-      <sprite>sprites\spr_player_down</sprite>
-      <sprite>sprites\spr_player_right</sprite>
-      <sprite>sprites\spr_player_left</sprite>
-      <sprite>sprites\spr_player_up</sprite>
-      <sprite>sprites\spr_player_attack_left</sprite>
-      <sprite>sprites\spr_player_attack_up</sprite>
-      <sprite>sprites\spr_player_attack_down</sprite>
-      <sprite>sprites\spr_player_attack_right</sprite>
       <sprite>sprites\spr_player_shadow</sprite>
+      <sprites name="MOVE">
+        <sprite>sprites\spr_player_down</sprite>
+        <sprite>sprites\spr_player_up</sprite>
+        <sprite>sprites\spr_player_left</sprite>
+        <sprite>sprites\spr_player_right</sprite>
+      </sprites>
+      <sprites name="ATTACK">
+        <sprite>sprites\spr_player_attack_down</sprite>
+        <sprite>sprites\spr_player_attack_left</sprite>
+        <sprite>sprites\spr_player_attack_up</sprite>
+        <sprite>sprites\spr_player_attack_right</sprite>
+      </sprites>
     </sprites>
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\bg_grass</sprite>
@@ -84,7 +88,7 @@
     <object>objects\obj_player</object>
     <object>objects\obj_view</object>
     <object>objects\obj_dash_effect</object>
-    <object>objects\obj_enemy_sprite</object>
+    <object>objects\obj_enemy_slime</object>
     <object>objects\obj_enemy_chinlin</object>
     <object>objects\obj_damage</object>
     <object>objects\obj_player_stats</object>

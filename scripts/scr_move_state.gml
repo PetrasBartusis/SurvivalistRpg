@@ -1,16 +1,5 @@
 ///scr_move_state
-if(!obj_player.in_combat){
-    //movement for simple running
-    movement = MOVE;
-    spd = 3.5;
-    image_speed = .5;
-} else {
-    //movement for combat
-    movement = COMBAT;
-    spd = 3;
-    image_speed = .5;
-}
-
+movement = MOVE;
 
 //check if player is dashing
 if(obj_input.dash_key){
@@ -42,59 +31,30 @@ if(obj_input.dash_key){
     }
 }
 
-//check if player is attacking
+//check if player is dashing
 if(obj_input.attack_key){
     //start attack animation from the start
-    if(in_combat){
-        image_index = 0;
-        state = scr_attack_state;
-    }
+    image_index = 0;
+    state = scr_attack_state;
 }
 
-
-//check if player is casting a spell
+//check if player is dashing
 if(obj_input.spell_key){
-    if(obj_player_stats.magicka >= FIREBALL_COST and in_combat){
-        //create a projectile
-        var p = instance_create(x, y, obj_projectile);
-        var xforce = lengthdir_x(10, face * 90);
-        var yforce = lengthdir_y(10, face * 90);
-        p.creator = id;
-        obj_player_stats.magicka -= FIREBALL_COST;
-        obj_player_stats.alarm[1] = room_speed/2;
-        switch(face){
-            case RIGHT:
-                p.sprite_index = spr_spell_right;
-                break;
-            case UP:
-                p.sprite_index = spr_spell_up;
-                break;
-            case LEFT:
-                p.sprite_index = spr_spell_left;
-                break;
-            case DOWN:
-                p.sprite_index = spr_spell_down;
-                break;
-        }
-        with(p){
-            physics_apply_impulse(x, y, xforce, yforce);
-        }
+    //create a projectile
+    var p = instance_create(x, y, obj_projectile);
+    var xforce = lengthdir_x(20, face * 90);
+    var yforce = lengthdir_y(20, face * 90);
+    p.creator = id;
+    with(p){
+        physics_apply_impulse(x, y, xforce, yforce);
     }
 }
 
-//check if player is swapping
+//check if player is dashing
 if(obj_input.swap_key){
     var nearest_weapon = instance_nearest(x, y, obj_weapon_item);
     if(place_meeting(x, y + 4, nearest_weapon)){
         scr_swap_weapons(nearest_weapon);
-    }
-}
-
-if(obj_input.sheath_key){
-    if(obj_player.in_combat){
-        obj_player.in_combat = false;
-    } else {
-        obj_player.in_combat = true;
     }
 }
 
@@ -118,14 +78,6 @@ phy_position_x += hspd;
 phy_position_y += vspd;
 
 // Control the sprite
-if(len == 0) {
-    if(!in_combat){
-        movement = IDLE;
-        image_speed = .03;
-    } else {
-        movement = IDLE_COMBAT;
-        image_speed = .05;
-    }
-    
-}
+image_speed = .3;
+if(len == 0) image_index = 0;
 

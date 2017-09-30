@@ -25,8 +25,47 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Initialize the expr
+            <string>/// Initialise the expr object
 expr = 1;
+hspd = 0;
+vspd = 0;
+spd = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Move towards the player
+if(instance_exists(obj_player)){
+    spd += .1
+    //get a direction
+    dir = point_direction(x, y, obj_player.x, obj_player.y);
+    //get directional speed
+    hspd = lengthdir_x(spd, dir);
+    vspd = lengthdir_y(spd, dir);
+    //move expr object
+    phy_position_x += hspd;
+    phy_position_y += vspd;
+} else {
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>
@@ -45,7 +84,7 @@ expr = 1;
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>4,4</point>
-    <point>4,0</point>
+    <point>3,3</point>
+    <point>3,0</point>
   </PhysicsShapePoints>
 </object>
