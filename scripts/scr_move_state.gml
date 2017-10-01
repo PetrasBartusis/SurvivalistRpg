@@ -40,14 +40,9 @@ if(obj_input.attack_key){
 
 //check if player is dashing
 if(obj_input.spell_key){
-    //create a projectile
-    var p = instance_create(x, y, obj_projectile);
-    var xforce = lengthdir_x(20, face * 90);
-    var yforce = lengthdir_y(20, face * 90);
-    p.creator = id;
-    with(p){
-        physics_apply_impulse(x, y, xforce, yforce);
-    }
+    //start shoot animation from the start
+    image_index = 0;
+    state = scr_shoot_state;
 }
 
 //check if player is dashing
@@ -55,6 +50,10 @@ if(obj_input.swap_key){
     var nearest_weapon = instance_nearest(x, y, obj_weapon_item);
     if(place_meeting(x, y + 4, nearest_weapon)){
         scr_swap_weapons(nearest_weapon);
+    }
+    var nearest_bedroll = instance_nearest(x, y, obj_bedroll);
+    if(place_meeting(x + 15, y + 15, nearest_bedroll)){
+        scr_make_it_day();
     }
 }
 
@@ -79,5 +78,18 @@ phy_position_y += vspd;
 
 // Control the sprite
 image_speed = .3;
-if(len == 0) image_index = 0;
-
+if(len == 0){
+    movement = IDLE;
+    isMoving = false;
+    alarm[1] = 0;
+    image_speed = .03;
+} else { // if moving, play sounds
+    //play the first footstep sound if player is not moving yet
+    if(!isMoving){
+        audio_play_sound(snd_footstep2, 2, false);
+    }
+    isMoving = true;
+    if(alarm[1] <= 0){
+        alarm[1] = room_speed * .35;
+    }
+}

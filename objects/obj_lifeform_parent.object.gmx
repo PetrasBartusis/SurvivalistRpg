@@ -28,6 +28,7 @@
             <string>///Initialise the lifeform
 phy_fixed_rotation = true;
 hp = 3;
+flash = false;
 
 </string>
           </argument>

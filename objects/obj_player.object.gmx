@@ -44,6 +44,7 @@ state = scr_move_state;
 face = RIGHT;
 movement = MOVE;
 weapon_sprite = spr_sword;
+bonus_weapon_damage = 0;
 
 // Create the sprite array
 sprite[RIGHT, MOVE] = spr_player_right;
@@ -55,6 +56,11 @@ sprite[RIGHT, ATTACK] = spr_player_attack_right;
 sprite[UP, ATTACK] = spr_player_attack_up;
 sprite[LEFT, ATTACK] = spr_player_attack_left;
 sprite[DOWN, ATTACK] = spr_player_attack_down;
+
+sprite[RIGHT, IDLE] = spr_player_idle_right;
+sprite[UP, IDLE] = spr_player_idle_up;
+sprite[LEFT, IDLE] = spr_player_idle_left;
+sprite[DOWN, IDLE] = spr_player_idle_down;
 </string>
           </argument>
         </arguments>
@@ -113,6 +119,8 @@ sprite_index = sprite[face, movement];
 if(obj_player_stats.hp &lt;= 0){
     instance_destroy();
 }
+
+scr_camera_movement();
 </string>
           </argument>
         </arguments>
@@ -296,7 +304,7 @@ persistent = true;
             <kind>1</kind>
             <string>/// Draw shadow
 draw_sprite(spr_player_shadow, image_index, x, y);
-draw_self();
+scr_take_damage_flash();
 </string>
           </argument>
         </arguments>

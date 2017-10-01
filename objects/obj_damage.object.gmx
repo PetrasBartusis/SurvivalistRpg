@@ -94,6 +94,7 @@ if(other.id != creator){
     with (other){
         physics_apply_impulse(x, y, xforce, yforce);
     }
+    other.flash = true;
 }
 
 </string>
@@ -132,6 +133,9 @@ if(other.id != creator){
     with (other){
         physics_apply_impulse(x, y, xforce, yforce);
     }
+    obj_view.x += random_range(-3, 3); 
+    obj_view.y += random_range(-3, 3); 
+    other.flash = true;
 }
 
 </string>

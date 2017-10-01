@@ -79,6 +79,7 @@ if(instance_exists(obj_player)){
           <argument>
             <kind>1</kind>
             <string>/// Animation
+depth = -y;
 if(image_angle &gt;= dir - 45) {
     image_angle -= 18;
 } else {

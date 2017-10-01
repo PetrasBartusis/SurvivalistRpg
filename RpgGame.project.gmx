@@ -5,10 +5,15 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
+    <sound>sound\snd_hit_by_arrow</sound>
+    <sound>sound\snd_hp</sound>
+    <sound>sound\snd_footstep1</sound>
+    <sound>sound\snd_footstep2</sound>
     <sound>sound\snd_player_takes_damage</sound>
     <sound>sound\snd_sword_attack</sound>
     <sound>sound\snd_enemy_die</sound>
     <sound>sound\snd_expr</sound>
+    <sound>sound\snd_arrow_hit_wall</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Player">
@@ -24,6 +29,18 @@
         <sprite>sprites\spr_player_attack_left</sprite>
         <sprite>sprites\spr_player_attack_up</sprite>
         <sprite>sprites\spr_player_attack_right</sprite>
+      </sprites>
+      <sprites name="IDLE">
+        <sprite>sprites\spr_player_idle_left</sprite>
+        <sprite>sprites\spr_player_idle_up</sprite>
+        <sprite>sprites\spr_player_idle_right</sprite>
+        <sprite>sprites\spr_player_idle_down</sprite>
+      </sprites>
+      <sprites name="SHOOT">
+        <sprite>sprites\spr_player_shoot_down</sprite>
+        <sprite>sprites\spr_player_shoot_left</sprite>
+        <sprite>sprites\spr_player_shoot_right</sprite>
+        <sprite>sprites\spr_player_shoot_up</sprite>
       </sprites>
     </sprites>
     <sprite>sprites\spr_wall</sprite>
@@ -43,10 +60,33 @@
         <sprite>sprites\spr_chinlin_run_down</sprite>
         <sprite>sprites\spr_chinlin_stand_right</sprite>
         <sprite>sprites\spr_chinlin_run_right</sprite>
+        <sprite>sprites\spr_chinlin_shadow</sprite>
       </sprites>
     </sprites>
     <sprite>sprites\spr_sword</sprite>
     <sprite>sprites\spr_axe</sprite>
+    <sprite>sprites\spr_campfire</sprite>
+    <sprite>sprites\spr_glow</sprite>
+    <sprite>sprites\spr_bedroll</sprite>
+    <sprites name="Objects">
+      <sprites name="Trees">
+        <sprites name="Regular">
+          <sprite>sprites\spr_tree_shadow</sprite>
+          <sprite>sprites\spr_tree</sprite>
+        </sprites>
+        <sprites name="Spruce">
+          <sprite>sprites\spr_spruce_tree</sprite>
+          <sprite>sprites\spr_spruce_tree_shadow</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="Rocks">
+        <sprite>sprites\spr_boulder_shadow</sprite>
+        <sprite>sprites\spr_boulder</sprite>
+      </sprites>
+      <sprite>sprites\spr_grass</sprite>
+    </sprites>
+    <sprite>sprites\spr_bow</sprite>
+    <sprite>sprites\spr_arrow</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -57,6 +97,7 @@
       <script>scripts\scr_move_state.gml</script>
       <script>scripts\scr_dash_state.gml</script>
       <script>scripts\scr_attack_state.gml</script>
+      <script>scripts\scr_shoot_state.gml</script>
       <scripts name="helper_scripts">
         <script>scripts\scr_get_input.gml</script>
       </scripts>
@@ -79,9 +120,20 @@
       <script>scripts\scr_load_game.gml</script>
       <script>scripts\scr_get_face.gml</script>
     </scripts>
+    <scripts name="camera_scripts">
+      <script>scripts\scr_camera_movement.gml</script>
+      <script>scripts\scr_shake_camera.gml</script>
+    </scripts>
     <script>scripts\scr_animation_hit_frame.gml</script>
     <script>scripts\scr_swap_weapons.gml</script>
+    <script>scripts\scr_take_damage_flash.gml</script>
+    <script>scripts\scr_make_it_day.gml</script>
+    <script>scripts\scr_sleep_ms.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\font0</font>
+    <font>fonts\damage_font</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_lifeform_parent</object>
     <object>objects\obj_wall</object>
@@ -103,6 +155,19 @@
     <object>objects\obj_projectile</object>
     <object>objects\obj_weapon_animation</object>
     <object>objects\obj_weapon_item</object>
+    <object>objects\obj_tree</object>
+    <object>objects\obj_boulder</object>
+    <object>objects\obj_grass</object>
+    <object>objects\obj_night_cycle</object>
+    <object>objects\obj_campfire</object>
+    <object>objects\obj_bedroll</object>
+    <object>objects\obj_bow_animation</object>
+    <object>objects\obj_spruce_tree</object>
+    <object>objects\obj_background_music</object>
+    <objects name="Numbers">
+      <object>objects\obj_damage_numbers</object>
+      <object>objects\obj_health_restore_numbers</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_one</room>
