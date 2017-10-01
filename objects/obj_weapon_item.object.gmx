@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>///Initialise the obj_weapon_axe
 bonus_weapon_damage = 1;
+glow_size = 0;
 </string>
           </argument>
         </arguments>

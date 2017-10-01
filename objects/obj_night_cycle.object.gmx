@@ -156,6 +156,20 @@ if(room == rm_one){
         draw_set_blend_mode(bm_normal);
     }
     
+    with(obj_weapon_animation){
+        if(glow_size&gt;0){
+            draw_set_blend_mode(bm_src_color);
+            draw_sprite_ext(spr_glow, 0, x, y, glow_size, glow_size, 0, c_aqua, .7);
+            draw_set_blend_mode(bm_normal);
+        }
+    }
+    
+    with(obj_weapon_mithril_blade){
+        draw_set_blend_mode(bm_src_color);
+        draw_sprite_ext(spr_glow, 0, x, y, glow_size, glow_size, 0, c_aqua, .7);
+        draw_set_blend_mode(bm_normal);
+    }
+    
     surface_reset_target();
     draw_surface_ext(night_cycle_surf, 0, 0, 1, 1, 0, c_white, alpha);
 }

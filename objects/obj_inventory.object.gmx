@@ -4,11 +4,11 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
-  <parentName>obj_damage_numbers</parentName>
+  <persistent>-1</persistent>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="8" enumb="0">
+    <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,11 +25,43 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Draw the damage
-draw_set_font(damage_font);
-// center the damage on the object
-draw_set_halign(fa_left);
-draw_text_colour(x, y, "+" + damage, c_green, c_green, c_green, c_green, 1);
+            <string>/// Initialize the player's inventory
+globalvar playerInventoryWidth, playerInventory;
+playerInventoryWidth = 5;
+
+playerInventory = ds_grid_create(playerInventoryWidth, 1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="73">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Create the inventory on screen
+if(!instance_exists(obj_inventory_gui)){
+    inventoryDisplay = instance_create(obj_player.x, obj_player.y, obj_inventory_gui);
+    with(inventoryDisplay){
+        x = sprite_get_xoffset(sprite_index);
+        y = room_height - sprite_get_yoffset(sprite_index);
+    }
+} else {
+    instance_destroy(inventoryDisplay);
+}
 </string>
           </argument>
         </arguments>

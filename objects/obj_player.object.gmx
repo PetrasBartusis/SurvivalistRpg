@@ -43,10 +43,15 @@ image_speed = .1;
 state = scr_move_state;
 face = RIGHT;
 movement = MOVE;
-weapon_sprite = spr_sword;
-bonus_weapon_damage = 0;
 whichFoot = 0;
 isMoving = false;
+
+// current weapon attributes
+weapon_sprite = spr_sword;
+bonus_weapon_damage = 0;
+weapon_glow_size = 0;
+
+
 
 // Create the sprite array
 sprite[RIGHT, MOVE] = spr_player_right;
@@ -163,6 +168,51 @@ scr_camera_movement();
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_expr">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Collect expr
+var expr_to_give = 0;
+with(other){
+    expr_to_give = self.expr;
+    instance_destroy();
+    audio_play_sound(snd_expr, 6, false);
+}
+
+// Level up code
+with(obj_player_stats){
+    expr += expr_to_give;
+    if(expr &gt;= maxexpr){
+        level += 1;
+        expr = expr - maxexpr;
+        maxexpr *= 2;
+        hp += 2;
+        maxhp += 2;
+        stamina += 2;
+        maxstamina += 2;
+        attack += 1;
+    }
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_health">
       <action>
         <libid>1</libid>
@@ -221,51 +271,6 @@ if(room_exists(other.new_room)) {
     x = other.new_x;
     y = other.new_y;
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_expr">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Collect expr
-var expr_to_give = 0;
-with(other){
-    expr_to_give = self.expr;
-    instance_destroy();
-    audio_play_sound(snd_expr, 6, false);
-}
-
-// Level up code
-with(obj_player_stats){
-    expr += expr_to_give;
-    if(expr &gt;= maxexpr){
-        level += 1;
-        expr = expr - maxexpr;
-        maxexpr *= 2;
-        hp += 2;
-        maxhp += 2;
-        stamina += 2;
-        maxstamina += 2;
-        attack += 1;
-    }
-}
-
 </string>
           </argument>
         </arguments>

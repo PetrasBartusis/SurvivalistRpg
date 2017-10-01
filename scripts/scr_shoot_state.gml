@@ -20,7 +20,7 @@ if(scr_animation_hit_frame(0)){
             yoffset-=1;
             break;
     }
-    shoot_animation = instance_create(x + xoffset, y + yoffset, obj_bow_animation);
+    shoot_animation = instance_create(x + xoffset, y + yoffset+2, obj_bow_animation);
     shoot_animation.dir = face * 90;
     shoot_animation.image_angle = (face * 90);
     shoot_animation.face = face;

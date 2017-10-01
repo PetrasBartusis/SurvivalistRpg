@@ -50,10 +50,11 @@ if(obj_input.swap_key){
     var nearest_weapon = instance_nearest(x, y, obj_weapon_item);
     if(place_meeting(x, y + 4, nearest_weapon)){
         scr_swap_weapons(nearest_weapon);
-    }
-    var nearest_bedroll = instance_nearest(x, y, obj_bedroll);
-    if(place_meeting(x + 15, y + 15, nearest_bedroll)){
-        scr_make_it_day();
+    } else {
+        var nearest_bedroll = instance_nearest(x, y, obj_bedroll);
+        if(place_meeting(x + 15, y + 15, nearest_bedroll)){
+            scr_make_it_day();
+        }
     }
 }
 

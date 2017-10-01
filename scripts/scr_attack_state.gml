@@ -8,6 +8,7 @@ if(scr_animation_hit_frame(2)){
     attack_animation.dir = face * 90;
     attack_animation.image_angle = (face * 90) + 45;
     attack_animation.sprite_index = weapon_sprite;
+    attack_animation.glow_size = weapon_glow_size;
 }
 
 if(scr_animation_hit_frame(3)){

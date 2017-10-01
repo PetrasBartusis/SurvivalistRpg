@@ -43,31 +43,6 @@
         <sprite>sprites\spr_player_shoot_up</sprite>
       </sprites>
     </sprites>
-    <sprite>sprites\spr_wall</sprite>
-    <sprite>sprites\bg_grass</sprite>
-    <sprite>sprites\spr_damage</sprite>
-    <sprite>sprites\spr_expr</sprite>
-    <sprite>sprites\spr_health</sprite>
-    <sprite>sprites\spr_door</sprite>
-    <sprite>sprites\spr_dialog</sprite>
-    <sprite>sprites\spr_sign</sprite>
-    <sprites name="Enemies">
-      <sprite>sprites\spr_enemy_slime</sprite>
-      <sprites name="Chinlin">
-        <sprite>sprites\spr_chinlin_run_up</sprite>
-        <sprite>sprites\spr_chinlin_stand_down</sprite>
-        <sprite>sprites\spr_chinlin_stand_up</sprite>
-        <sprite>sprites\spr_chinlin_run_down</sprite>
-        <sprite>sprites\spr_chinlin_stand_right</sprite>
-        <sprite>sprites\spr_chinlin_run_right</sprite>
-        <sprite>sprites\spr_chinlin_shadow</sprite>
-      </sprites>
-    </sprites>
-    <sprite>sprites\spr_sword</sprite>
-    <sprite>sprites\spr_axe</sprite>
-    <sprite>sprites\spr_campfire</sprite>
-    <sprite>sprites\spr_glow</sprite>
-    <sprite>sprites\spr_bedroll</sprite>
     <sprites name="Objects">
       <sprites name="Trees">
         <sprites name="Regular">
@@ -80,16 +55,59 @@
         </sprites>
       </sprites>
       <sprites name="Rocks">
-        <sprite>sprites\spr_boulder_shadow</sprite>
-        <sprite>sprites\spr_boulder</sprite>
+        <sprites name="Boulder">
+          <sprite>sprites\spr_boulder_shadow</sprite>
+          <sprite>sprites\spr_boulder</sprite>
+        </sprites>
+        <sprites name="Small rocks">
+          <sprite>sprites\spr_small_rock</sprite>
+          <sprite>sprites\spr_small_rock_shadow</sprite>
+        </sprites>
       </sprites>
       <sprite>sprites\spr_grass</sprite>
+      <sprite>sprites\spr_health</sprite>
+      <sprite>sprites\spr_door</sprite>
+      <sprite>sprites\spr_sign</sprite>
+      <sprite>sprites\spr_expr</sprite>
+      <sprite>sprites\spr_wall</sprite>
+      <sprite>sprites\spr_campfire</sprite>
+      <sprite>sprites\spr_bedroll</sprite>
     </sprites>
-    <sprite>sprites\spr_bow</sprite>
-    <sprite>sprites\spr_arrow</sprite>
+    <sprites name="Enemies">
+      <sprite>sprites\spr_enemy_slime</sprite>
+      <sprites name="Chinlin">
+        <sprite>sprites\spr_chinlin_run_up</sprite>
+        <sprite>sprites\spr_chinlin_stand_down</sprite>
+        <sprite>sprites\spr_chinlin_stand_up</sprite>
+        <sprite>sprites\spr_chinlin_run_down</sprite>
+        <sprite>sprites\spr_chinlin_stand_right</sprite>
+        <sprite>sprites\spr_chinlin_run_right</sprite>
+        <sprite>sprites\spr_chinlin_shadow</sprite>
+      </sprites>
+    </sprites>
+    <sprite>sprites\spr_damage</sprite>
+    <sprite>sprites\spr_dialog</sprite>
+    <sprite>sprites\spr_glow</sprite>
+    <sprites name="Weapons">
+      <sprite>sprites\spr_bow</sprite>
+      <sprite>sprites\spr_mithril_blade</sprite>
+      <sprite>sprites\spr_axe</sprite>
+      <sprite>sprites\spr_sword</sprite>
+      <sprite>sprites\spr_arrow</sprite>
+    </sprites>
+    <sprite>sprites\spr_red_berry</sprite>
+    <sprite>sprites\sprite51</sprite>
+    <sprite>sprites\spr_fantasy_inventory</sprite>
+    <sprite>sprites\spr_item</sprite>
+    <sprite>sprites\spr_item_sword</sprite>
   </sprites>
   <backgrounds name="background">
-    <background>background\background0</background>
+    <background>background\bg_grass</background>
+    <background>background\bg_dark_grass_patch</background>
+    <background>background\bg_dirt_patch</background>
+    <background>background\bg_dirt_patch_mirrored</background>
+    <background>background\spr_dark_grass_patch2</background>
+    <background>background\spr_dark_grass_patch2_mirrored</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -97,6 +115,7 @@
       <script>scripts\scr_move_state.gml</script>
       <script>scripts\scr_dash_state.gml</script>
       <script>scripts\scr_attack_state.gml</script>
+      <script>scripts\scr_swap_weapons.gml</script>
       <script>scripts\scr_shoot_state.gml</script>
       <scripts name="helper_scripts">
         <script>scripts\scr_get_input.gml</script>
@@ -121,53 +140,71 @@
       <script>scripts\scr_get_face.gml</script>
     </scripts>
     <scripts name="camera_scripts">
+      <script>scripts\scr_sleep_ms.gml</script>
       <script>scripts\scr_camera_movement.gml</script>
       <script>scripts\scr_shake_camera.gml</script>
     </scripts>
     <script>scripts\scr_animation_hit_frame.gml</script>
-    <script>scripts\scr_swap_weapons.gml</script>
     <script>scripts\scr_take_damage_flash.gml</script>
     <script>scripts\scr_make_it_day.gml</script>
-    <script>scripts\scr_sleep_ms.gml</script>
+    <script>scripts\scr_add_item.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font0</font>
     <font>fonts\damage_font</font>
+    <font>fonts\inventory_font</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_lifeform_parent</object>
-    <object>objects\obj_wall</object>
-    <object>objects\obj_player</object>
+    <objects name="Player">
+      <object>objects\obj_player</object>
+      <object>objects\obj_player_stats</object>
+      <object>objects\obj_dash_effect</object>
+      <object>objects\obj_input</object>
+      <object>objects\obj_inventory</object>
+    </objects>
     <object>objects\obj_view</object>
-    <object>objects\obj_dash_effect</object>
-    <object>objects\obj_enemy_slime</object>
-    <object>objects\obj_enemy_chinlin</object>
     <object>objects\obj_damage</object>
-    <object>objects\obj_player_stats</object>
-    <object>objects\obj_expr</object>
-    <object>objects\obj_door</object>
-    <object>objects\obj_health</object>
-    <object>objects\obj_speaker</object>
     <object>objects\obj_dialog</object>
-    <object>objects\obj_sign</object>
-    <object>objects\obj_input</object>
-    <object>objects\obj_pause_menu</object>
-    <object>objects\obj_projectile</object>
-    <object>objects\obj_weapon_animation</object>
-    <object>objects\obj_weapon_item</object>
-    <object>objects\obj_tree</object>
-    <object>objects\obj_boulder</object>
-    <object>objects\obj_grass</object>
-    <object>objects\obj_night_cycle</object>
-    <object>objects\obj_campfire</object>
-    <object>objects\obj_bedroll</object>
-    <object>objects\obj_bow_animation</object>
-    <object>objects\obj_spruce_tree</object>
-    <object>objects\obj_background_music</object>
+    <objects name="Enemies">
+      <object>objects\obj_enemy_chinlin</object>
+      <object>objects\obj_enemy_slime</object>
+    </objects>
     <objects name="Numbers">
       <object>objects\obj_damage_numbers</object>
       <object>objects\obj_health_restore_numbers</object>
     </objects>
+    <objects name="Room objects">
+      <object>objects\obj_campfire</object>
+      <object>objects\obj_door</object>
+      <object>objects\obj_health</object>
+      <object>objects\obj_boulder</object>
+      <object>objects\obj_small_rock</object>
+      <object>objects\obj_expr</object>
+      <object>objects\obj_tree</object>
+      <object>objects\obj_spruce_tree</object>
+      <object>objects\obj_grass</object>
+      <object>objects\obj_sign</object>
+      <object>objects\obj_bedroll</object>
+    </objects>
+    <objects name="Weapons">
+      <object>objects\obj_bow_animation</object>
+      <object>objects\obj_weapon_item</object>
+      <object>objects\obj_weapon_mithril_blade</object>
+      <object>objects\obj_projectile</object>
+      <object>objects\obj_weapon_animation</object>
+    </objects>
+    <objects name="Invisible objects">
+      <object>objects\obj_night_cycle</object>
+      <object>objects\obj_speaker</object>
+      <object>objects\obj_pause_menu</object>
+      <object>objects\obj_background_music</object>
+    </objects>
+    <objects name="Parent classes">
+      <object>objects\obj_wall</object>
+      <object>objects\obj_lifeform_parent</object>
+    </objects>
+    <object>objects\obj_pick_up</object>
+    <object>objects\obj_inventory_gui</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_one</room>

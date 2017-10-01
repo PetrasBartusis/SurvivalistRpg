@@ -8,3 +8,8 @@ new_weapon.sprite_index = temp;
 var tempDamage = new_weapon.bonus_weapon_damage;
 new_weapon.bonus_weapon_damage = bonus_weapon_damage;
 bonus_weapon_damage = tempDamage;
+
+//swap glow_size damage
+var tempGlow = new_weapon.glow_size;
+new_weapon.glow_size = weapon_glow_size;
+weapon_glow_size = tempGlow;
