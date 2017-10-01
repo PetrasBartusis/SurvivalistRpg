@@ -45,6 +45,8 @@ face = RIGHT;
 movement = MOVE;
 weapon_sprite = spr_sword;
 bonus_weapon_damage = 0;
+whichFoot = 0;
+isMoving = false;
 
 // Create the sprite array
 sprite[RIGHT, MOVE] = spr_player_right;
@@ -61,6 +63,41 @@ sprite[RIGHT, IDLE] = spr_player_idle_right;
 sprite[UP, IDLE] = spr_player_idle_up;
 sprite[LEFT, IDLE] = spr_player_idle_left;
 sprite[DOWN, IDLE] = spr_player_idle_down;
+
+sprite[RIGHT, SHOOT] = spr_player_shoot_right;
+sprite[UP, SHOOT] = spr_player_shoot_up;
+sprite[LEFT, SHOOT] = spr_player_shoot_left;
+sprite[DOWN, SHOOT] = spr_player_shoot_down;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Footstep alarm
+if(whichFoot == 0){
+    audio_play_sound(snd_footstep1, 2, false);
+    whichFoot = 1;
+} else {
+    audio_play_sound(snd_footstep2, 2, false);
+    whichFoot = 0;
+}
 </string>
           </argument>
         </arguments>
@@ -151,7 +188,9 @@ with(other){
 // Restore player health
 with(obj_player_stats){
     hp = min(hp + 5, maxhp);
-    audio_play_sound(snd_expr, 6, false);
+    var damageNumber = instance_create(other.x, other.y, obj_health_restore_numbers);
+    damageNumber.damage = string(5);
+    audio_play_sound(snd_hp, 6, false);
 }
 
 </string>
@@ -250,9 +289,9 @@ with(obj_player_stats){
           <argument>
             <kind>1</kind>
             <string>/// Change back to move state
-if(state == scr_attack_state){
-    	state = scr_move_state;
-    	attacked = false;
+if(state == scr_attack_state or state == scr_shoot_state){
+    state = scr_move_state;
+    attacked = false;
 }
 
 </string>

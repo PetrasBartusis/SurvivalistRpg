@@ -91,10 +91,10 @@ if(alpha &gt; 0.1){
           <argument>
             <kind>1</kind>
             <string>/// Control the surface alpha
-if(alpha &lt; 0.75){
+if(alpha &lt; 0.6){
     alpha += change;
     alarm[0] = 1;
-} else if (alpha &gt;= 0.75){
+} else if (alpha &gt;= 0.6){
     //set the night length
     alarm[1] = room_speed * nightLength;
     isNight = true;
