@@ -35,7 +35,7 @@ emptyMessage = "You have no items.";
 globalvar itemSelected, scrolledAmount, inventoryEndAt;
 itemSelected = 0;
 scrolledAmount = 0;
-inventoryEndAt = min(ds_grid_height(myItems), floor((sprite_height - (textBorder * 3)) / 32));
+inventoryEndAt = min(ds_grid_height(myItems), floor((sprite_height - (textBorder * 3)) / 16));
 inventoryOnScreen = 0;
 if(ds_grid_get(myItems, 0, 0) == 0){
     inventoryEndAt = 0;
@@ -68,9 +68,24 @@ if(ds_grid_get(myItems, 0, 0) == 0){
             <kind>1</kind>
             <string>/// Control inventory's depth
 depth = -y - 2000;
+//move inventory so the player can see it
 if(instance_exists(obj_player)){
     x = view_xview[0];
     y = view_yview[0];
+}
+
+if(ds_grid_get(myItems, 0, 0) != 0){
+    isEmpty = false;
+    //F = ds_grid_height(myItems);
+    //if(ds_grid_height(myItems) &gt;= floor((sprite_height - (textBorder * 3) / 16 + 100))){
+        //inventoryEndAt = floor(sprite_height - (textBorder * 3) / 16);
+    //}
+    inventoryEndAt = min(ds_grid_height(myItems), floor((sprite_height - (textBorder * 3)) / 16));
+}
+
+if(ds_grid_get(myItems, 0, 0) == 0){
+    isEmpty = true;
+    inventoryEndAt = 0;
 }
 </string>
           </argument>
@@ -108,21 +123,128 @@ itemTopStart = bbox_top + 36;
 
 for(i = 0; i &lt; inventoryEndAt; i++){
     for(j = 0; j &lt; playerInventoryWidth; j++){
+        inventoryOnScreen = i;
         if(j == 0){
-            draw_text(itemLeftStart, itemTopStart + (i * 16), ds_grid_get(myItems, 0, i));
+            draw_text(itemLeftStart, itemTopStart + (i * 16), ds_grid_get(myItems, 0, i + scrolledAmount));
         } else if(j == 1){
-            draw_text(itemLeftStart + 58, itemTopStart + (i * 16), ds_grid_get(myItems, 1, i));
+            draw_text(itemLeftStart + 58, itemTopStart + (i * 16), ds_grid_get(myItems, 1, i + scrolledAmount));
         } else if(j == 3){
-            draw_sprite(ds_grid_get(myItems, j, i), 0, bbox_left + 40, itemTopStart + (i * 16) + 8);
+            draw_sprite(ds_grid_get(myItems, j, i + scrolledAmount), 0, bbox_left + 40, itemTopStart + (i * 16) + 8);
         }
     }
 }
 
-draw_rectangle(bbox_left + textBorder, itemTopStart + (itemSelected * 16), bbox_right - textBorder, itemTopStart + (itemSelected * 16) + 16, true);
+draw_rectangle(bbox_left + textBorder, itemTopStart + ((itemSelected - scrolledAmount) * 16), 
+bbox_right - textBorder, itemTopStart + ((itemSelected - scrolledAmount) * 16) + 16, true);
 
+draw_sprite(spr_item_box, 0, bbox_right, bbox_top);
 
+if(isEmpty){
+    draw_text_ext(bbox_right+16, bbox_top+16, emptyMessage, 16, sprite_get_width(spr_item_box) - textBorder);
+} else {
+    draw_text_ext(bbox_right+16, bbox_top+16, ds_grid_get(myItems, 2, itemSelected), 10, sprite_get_width(spr_item_box) - textBorder);
+}
 
-
+if(ds_grid_height(myItems) &gt; floor((sprite_height - (textBorder * 3)) / 16)){
+    draw_sprite(spr_scroll_bar, 0, bbox_right, 10 + bbox_top + itemSelected * (sprite_height - textBorder) / ds_grid_height(myItems));
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="18">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Delete item
+scr_trash_item();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="13">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Use item
+script_execute(ds_grid_get(playerInventory, 4, itemSelected));
+scr_trash_item();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="87">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Scroll up
+scr_scroll_up();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="83">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Scroll down
+scr_scroll_down();
 </string>
           </argument>
         </arguments>

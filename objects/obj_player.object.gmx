@@ -73,6 +73,9 @@ sprite[RIGHT, SHOOT] = spr_player_shoot_right;
 sprite[UP, SHOOT] = spr_player_shoot_up;
 sprite[LEFT, SHOOT] = spr_player_shoot_left;
 sprite[DOWN, SHOOT] = spr_player_shoot_down;
+
+
+
 </string>
           </argument>
         </arguments>

@@ -98,8 +98,13 @@
     <sprite>sprites\spr_red_berry</sprite>
     <sprite>sprites\sprite51</sprite>
     <sprite>sprites\spr_fantasy_inventory</sprite>
-    <sprite>sprites\spr_item</sprite>
-    <sprite>sprites\spr_item_sword</sprite>
+    <sprites name="InventoryItems">
+      <sprite>sprites\spr_item</sprite>
+      <sprite>sprites\spr_item_box</sprite>
+      <sprite>sprites\spr_item_sword</sprite>
+    </sprites>
+    <sprite>sprites\spr_scroll_bar</sprite>
+    <sprite>sprites\sprite56</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_grass</background>
@@ -148,6 +153,9 @@
     <script>scripts\scr_take_damage_flash.gml</script>
     <script>scripts\scr_make_it_day.gml</script>
     <script>scripts\scr_add_item.gml</script>
+    <script>scripts\scr_scroll_up.gml</script>
+    <script>scripts\scr_scroll_down.gml</script>
+    <script>scripts\scr_trash_item.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font0</font>
