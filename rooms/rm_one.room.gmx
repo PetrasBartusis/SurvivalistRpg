@@ -67,7 +67,6 @@
     <instance objName="obj_input" x="484" y="652" name="inst_D1F9D282" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy_chinlin" x="704" y="224" name="inst_7648B408" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy_chinlin" x="168" y="176" name="inst_86FE2B9B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_weapon_item" x="640" y="512" name="inst_7F035463" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tree" x="512" y="232" name="inst_D2DD8CDF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="0" y="0" name="inst_D61C30F1" locked="0" code="" scaleX="1" scaleY="22.7096767425537" colour="4294967295" rotation="0"/>
     <instance objName="obj_tree" x="464" y="408" name="inst_69C165FD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -165,10 +164,10 @@
     <instance objName="obj_enemy_slime" x="632" y="356" name="inst_147DDA03" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy_slime" x="528" y="472" name="inst_662C4DA4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy_slime" x="412" y="196" name="inst_2FFA6C2D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_weapon_mithril_blade" x="684" y="132" name="inst_A7D5E490" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_pick_up" x="428" y="292" name="inst_C0982EC5" locked="0" code="myItemName = &quot;Sword&quot;;&#xA;myItemAmount = 1;&#xA;myItemDescription = &quot;A metal sword.&quot;;&#xA;myItemSprite = spr_item_sword;&#xA;myItemScript = &quot;&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_pick_up" x="476" y="276" name="inst_A051E564" locked="0" code="myItemName = &quot;Red Berry&quot;;&#xA;myItemAmount = 1;&#xA;myItemDescription = &quot;A delicious red berry.&quot;;&#xA;myItemSprite = spr_item;&#xA;myItemScript = &quot;&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_pick_up" x="428" y="292" name="inst_C0982EC5" locked="0" code="myItemName = &quot;Axe&quot;;&#xA;myItemAmount = 1;&#xA;myItemDescription = &quot;A metal axe.&quot;;&#xA;myItemSprite = spr_item_axe;&#xA;myItemScript = scr_equip_item;&#xA;myItemSpriteInGame = spr_axe;&#xA;myItemBonusDamage = 1;&#xA;myItemIsEquippable = true;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_pick_up" x="476" y="276" name="inst_A051E564" locked="0" code="myItemName = &quot;Red Berry&quot;;&#xA;myItemAmount = 1;&#xA;myItemDescription = &quot;A delicious red berry.&quot;;&#xA;myItemSprite = spr_item;&#xA;myItemScript = &quot;&quot;;&#xA;myItemSpriteInGame = spr_item;&#xA;myItemBonusDamage = 0;&#xA;myItemIsEquippable = false;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_inventory" x="412" y="652" name="inst_BDE8B6E2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_pick_up" x="716" y="140" name="inst_D79CACBB" locked="0" code="myItemName = &quot;Mith blade&quot;;&#xA;myItemAmount = 1;&#xA;myItemDescription = &quot;A legendary blade made of mithril&quot;;&#xA;myItemSprite = spr_item_mithril_blade;&#xA;myItemScript = scr_equip_item;&#xA;myItemSpriteInGame = spr_mithril_blade;&#xA;myItemBonusDamage = 3;&#xA;myItemIsEquippable = true;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_dark_grass_patch" x="392" y="296" w="128" h="128" xo="0" yo="0" id="10000050" name="inst_C83BF32C" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

@@ -195,8 +195,12 @@ scr_trash_item();
           <argument>
             <kind>1</kind>
             <string>/// Use item
-script_execute(ds_grid_get(playerInventory, 4, itemSelected));
-scr_trash_item();
+if(!ds_grid_get(playerInventory, 7, itemSelected)){
+    script_execute(ds_grid_get(playerInventory, 4, itemSelected));
+} else {
+    script_execute(ds_grid_get(playerInventory, 4, itemSelected));
+    scr_trash_item();
+}
 </string>
           </argument>
         </arguments>
