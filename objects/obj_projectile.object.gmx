@@ -27,8 +27,9 @@
             <kind>1</kind>
             <string>/// Initialize the projectile
 creator = noone;
-knockback = 10;
+knockback = 5;
 phy_bullet = true;
+damage = 1;
 //phy_fixed_rotation = true;
 dir = 0;
 </string>
@@ -80,7 +81,7 @@ audio_play_sound(snd_hit_by_arrow, 8, false);
             <kind>1</kind>
             <string>/// Damage other lifeform
 if(other.id != creator){
-    other.hp -= 1;
+    other.hp -= damage;
     
     //Apply knockback
     var dir = point_direction(0, 0, phy_speed_x, phy_speed_y);
@@ -90,7 +91,7 @@ if(other.id != creator){
         physics_apply_impulse(x, y, xforce, yforce);
     }
     var damageNumber = instance_create(other.x, other.y, obj_damage_numbers);
-    damageNumber.damage = string(1);
+    damageNumber.damage = string(damage);
     scr_shake_camera();
     scr_sleep_ms(20);
     other.flash = true;

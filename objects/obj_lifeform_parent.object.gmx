@@ -29,7 +29,7 @@
 phy_fixed_rotation = true;
 hp = 3;
 flash = false;
-
+name = "entity";
 </string>
           </argument>
         </arguments>

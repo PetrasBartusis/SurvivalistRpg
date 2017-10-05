@@ -42,6 +42,13 @@
         <sprite>sprites\spr_player_shoot_right</sprite>
         <sprite>sprites\spr_player_shoot_up</sprite>
       </sprites>
+      <sprites name="DODGE">
+        <sprite>sprites\spr_player_dodge_left</sprite>
+        <sprite>sprites\spr_player_dodge_right</sprite>
+        <sprite>sprites\spr_player_dodge_down</sprite>
+        <sprite>sprites\spr_player_dodge_up</sprite>
+        <sprite>sprites\spr_player_dodge_right2</sprite>
+      </sprites>
     </sprites>
     <sprites name="Objects">
       <sprites name="Trees">
@@ -89,7 +96,8 @@
     <sprite>sprites\spr_dialog</sprite>
     <sprite>sprites\spr_glow</sprite>
     <sprites name="Weapons">
-      <sprite>sprites\spr_bow</sprite>
+      <sprite>sprites\spr_wooden_bow</sprite>
+      <sprite>sprites\spr_elven_bow</sprite>
       <sprite>sprites\spr_mithril_blade</sprite>
       <sprite>sprites\spr_axe</sprite>
       <sprite>sprites\spr_sword</sprite>
@@ -102,6 +110,8 @@
       <sprite>sprites\spr_item_box</sprite>
       <sprite>sprites\obj_pick_up_default</sprite>
       <sprite>sprites\spr_item_axe</sprite>
+      <sprite>sprites\spr_item_wooden_bow</sprite>
+      <sprite>sprites\spr_item_elven_bow</sprite>
       <sprite>sprites\spr_item_sword</sprite>
       <sprite>sprites\spr_item_mithril_blade</sprite>
     </sprites>
@@ -160,6 +170,9 @@
     <script>scripts\scr_take_damage_flash.gml</script>
     <script>scripts\scr_animation_hit_frame.gml</script>
     <script>scripts\scr_make_it_day.gml</script>
+    <script>scripts\scr_particle_blood_init.gml</script>
+    <script>scripts\scr_particle_slime_init.gml</script>
+    <script>scripts\scr_equip_ranged_weapon.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font0</font>
@@ -217,6 +230,7 @@
     </objects>
     <object>objects\obj_pick_up</object>
     <object>objects\obj_inventory_gui</object>
+    <object>objects\obj_particle_system</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_one</room>

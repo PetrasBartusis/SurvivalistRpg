@@ -45,12 +45,14 @@ face = RIGHT;
 movement = MOVE;
 whichFoot = 0;
 isMoving = false;
+name = "player";
 
 // current weapon attributes
 weapon_sprite = spr_sword;
 bonus_weapon_damage = 0;
 weapon_glow_size = 0;
-
+bow_sprite = spr_wooden_bow;
+bonus_ranged_weapon_damage = 0;
 
 
 // Create the sprite array
@@ -74,6 +76,10 @@ sprite[UP, SHOOT] = spr_player_shoot_up;
 sprite[LEFT, SHOOT] = spr_player_shoot_left;
 sprite[DOWN, SHOOT] = spr_player_shoot_down;
 
+sprite[RIGHT, DASH] = spr_player_dodge_right;
+sprite[UP, DASH] = spr_player_dodge_up;
+sprite[LEFT, DASH] = spr_player_dodge_left;
+sprite[DOWN, DASH] = spr_player_dodge_down;
 
 
 </string>

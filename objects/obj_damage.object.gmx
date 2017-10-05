@@ -94,8 +94,19 @@ if(other.id != creator){
     var damageNumber = instance_create(other.x, other.y, obj_damage_numbers);
     damageNumber.damage = string(damage);
     scr_shake_camera();
-    scr_sleep_ms(20);
+    scr_sleep_ms(25);
     other.flash = true;
+    
+    // create 10 particles
+    with(other){
+        if(self.name == "slime"){
+            part_particles_create(global.ps, x, y, global.pt_slime, 10);
+        } else {
+            part_particles_create(global.ps, x, y, global.pt_blood, 10);
+        }
+         
+    }
+   
 }
 
 </string>

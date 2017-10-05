@@ -25,7 +25,8 @@ if(obj_input.dash_key){
     } else if(obj_player_stats.stamina >= DASH_COST){
         // Dash
         state = scr_dash_state;
-        alarm[0] = room_speed/6;
+        alarm[0] = room_speed/2;
+        image_index = 0;
         obj_player_stats.stamina -= DASH_COST;
         obj_player_stats.alarm[0] = room_speed;
     }

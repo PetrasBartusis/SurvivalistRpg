@@ -24,6 +24,7 @@ if(scr_animation_hit_frame(0)){
     shoot_animation.dir = face * 90;
     shoot_animation.image_angle = (face * 90);
     shoot_animation.face = face;
+    shoot_animation.sprite_index = bow_sprite;
     shoot_animation.xoffset = xoffset;
     shoot_animation.yoffset = yoffset;
     //shoot_animation.sprite_index = weapon_sprite;
@@ -37,6 +38,7 @@ if(scr_animation_hit_frame(2)){
     p.creator = id;
     p.dir = face * 90;
     p.image_angle = p.dir;
+    p.damage = 1 + bonus_ranged_weapon_damage;
     with(p){
         physics_apply_impulse(x+xoffset, y+yoffset, xforce, yforce);
     }

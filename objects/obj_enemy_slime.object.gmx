@@ -38,6 +38,7 @@ xaxis = 0;
 yaxis = 0;
 expr_to_give = 1;
 attack = 1;
+name = "slime";
 </string>
           </argument>
         </arguments>

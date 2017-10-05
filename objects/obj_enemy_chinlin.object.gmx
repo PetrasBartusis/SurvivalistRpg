@@ -40,6 +40,7 @@ movement = IDLE;
 face = RIGHT;
 expr_to_give = 3;
 attack = 2;
+name = "chinlin";
 
 // Create the sprite array
 sprite[RIGHT, MOVE] = spr_chinlin_run_right;
