@@ -104,7 +104,6 @@ if(other.id != creator){
         } else {
             part_particles_create(global.ps, x, y, global.pt_blood, 10);
         }
-         
     }
    
 }

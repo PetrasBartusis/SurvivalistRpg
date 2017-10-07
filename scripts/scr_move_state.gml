@@ -24,6 +24,7 @@ if(obj_input.dash_key){
         }
     } else if(obj_player_stats.stamina >= DASH_COST){
         // Dash
+        audio_play_sound(snd_player_dashes, 9, false);
         state = scr_dash_state;
         alarm[0] = room_speed/2;
         image_index = 0;
@@ -43,7 +44,9 @@ if(obj_input.attack_key){
 if(obj_input.spell_key){
     //start shoot animation from the start
     image_index = 0;
-    state = scr_shoot_state;
+    if(scr_player_has_arrows()){
+        state = scr_shoot_state;
+    }
 }
 
 //check if player is dashing
@@ -63,7 +66,7 @@ if(obj_input.swap_key){
 dir = point_direction(0, 0, obj_input.xaxis, obj_input.yaxis);
 
 // Get the length
-if(obj_input.xaxis == 0 and obj_input.yaxis == 0){
+if(obj_input.xaxis == 0 and obj_input.yaxis == 0 or instance_exists(obj_inventory_gui)){
     len = 0;
     } else {
     len = spd;

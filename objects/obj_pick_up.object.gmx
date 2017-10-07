@@ -34,6 +34,8 @@ myItemScript = undefined;
 myItemSpriteInGame = undefined;
 myItemBonusDamage = undefined;
 myItemIsEquippable = undefined;
+myItemGlowSize = undefined;
+myItemIsEquipped = false;
 </string>
           </argument>
         </arguments>
@@ -59,7 +61,7 @@ myItemIsEquippable = undefined;
             <string>///Add the item
 scr_add_item(playerInventory, myItemName, myItemAmount,
 myItemDescription, myItemSprite, myItemScript, myItemSpriteInGame,
-myItemBonusDamage, myItemIsEquippable);
+myItemBonusDamage, myItemIsEquippable, myItemGlowSize, myItemIsEquipped);
 instance_destroy();
 </string>
           </argument>

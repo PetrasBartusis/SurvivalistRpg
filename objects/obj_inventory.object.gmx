@@ -27,18 +27,19 @@
             <kind>1</kind>
             <string>/// Initialize the player's inventory
 globalvar playerInventoryWidth, playerInventory;
-playerInventoryWidth = 7;
+playerInventoryWidth = 10;
 
 playerInventory = ds_grid_create(playerInventoryWidth, 1);
 
-scr_add_item(playerInventory, "Sword", 1, "A begginer sword.", spr_item_sword, scr_equip_item, spr_sword, 0, true);
-scr_add_item(playerInventory, "Wooden bow", 1, "A basic wooden bow.", spr_item_wooden_bow, scr_equip_ranged_weapon, spr_item_wooden_bow, 0, true);
+scr_add_item(playerInventory, "Sword", 1, "A begginer sword.#Bonus damage = 0", spr_item_sword, scr_equip_item, spr_sword, 0, true, 0, true);
+scr_add_item(playerInventory, "Wooden bow", 1, "A basic wooden bow.#Bonus damage = 0", spr_item_wooden_bow, scr_equip_ranged_weapon, spr_item_wooden_bow, 0, true, 0, true);
+scr_add_item(playerInventory, "Arrow", 20, "An arrow for shooting.", spr_item_arrow, scr_trash_arrow, spr_arrow, 0, true, 0, true);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="10" enumb="73">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -56,15 +57,18 @@ scr_add_item(playerInventory, "Wooden bow", 1, "A basic wooden bow.", spr_item_w
           <argument>
             <kind>1</kind>
             <string>/// Create the inventory on screen
-if(!instance_exists(obj_inventory_gui)){
-    inventoryDisplay = instance_create(obj_player.x, obj_player.y, obj_inventory_gui);
-    with(inventoryDisplay){
-        x = sprite_get_xoffset(sprite_index);
-        y = room_height - sprite_get_yoffset(sprite_index);
+if(instance_exists(obj_input) and obj_input.inventory_key){
+    if(!instance_exists(obj_inventory_gui)){
+        inventoryDisplay = instance_create(obj_player.x, obj_player.y, obj_inventory_gui);
+        with(inventoryDisplay){
+            x = sprite_get_xoffset(sprite_index);
+            y = room_height - sprite_get_yoffset(sprite_index);
+        }
+    } else {
+        instance_destroy(inventoryDisplay);
     }
-} else {
-    instance_destroy(inventoryDisplay);
 }
+
 </string>
           </argument>
         </arguments>

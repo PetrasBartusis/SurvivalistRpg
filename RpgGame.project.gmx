@@ -14,6 +14,7 @@
     <sound>sound\snd_enemy_die</sound>
     <sound>sound\snd_expr</sound>
     <sound>sound\snd_arrow_hit_wall</sound>
+    <sound>sound\snd_player_dashes</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Player">
@@ -91,6 +92,9 @@
         <sprite>sprites\spr_chinlin_run_right</sprite>
         <sprite>sprites\spr_chinlin_shadow</sprite>
       </sprites>
+      <sprites name="Treant">
+        <sprite>sprites\spr_treant_left</sprite>
+      </sprites>
     </sprites>
     <sprite>sprites\spr_damage</sprite>
     <sprite>sprites\spr_dialog</sprite>
@@ -103,19 +107,19 @@
       <sprite>sprites\spr_sword</sprite>
       <sprite>sprites\spr_arrow</sprite>
     </sprites>
-    <sprite>sprites\sprite51</sprite>
-    <sprite>sprites\spr_fantasy_inventory</sprite>
     <sprites name="InventoryItems">
       <sprite>sprites\spr_item</sprite>
+      <sprite>sprites\spr_fantasy_inventory</sprite>
       <sprite>sprites\spr_item_box</sprite>
       <sprite>sprites\obj_pick_up_default</sprite>
       <sprite>sprites\spr_item_axe</sprite>
       <sprite>sprites\spr_item_wooden_bow</sprite>
       <sprite>sprites\spr_item_elven_bow</sprite>
+      <sprite>sprites\spr_scroll_bar</sprite>
+      <sprite>sprites\spr_item_arrow</sprite>
       <sprite>sprites\spr_item_sword</sprite>
       <sprite>sprites\spr_item_mithril_blade</sprite>
     </sprites>
-    <sprite>sprites\spr_scroll_bar</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_grass</background>
@@ -124,6 +128,8 @@
     <background>background\bg_dirt_patch_mirrored</background>
     <background>background\spr_dark_grass_patch2</background>
     <background>background\spr_dark_grass_patch2_mirrored</background>
+    <background>background\spr_dark_grass</background>
+    <background>background\spr_dark_grass_mirrored</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -144,7 +150,9 @@
         <script>scripts\scr_move_axis.gml</script>
       </scripts>
       <script>scripts\scr_enemy_idle_state.gml</script>
+      <script>scripts\scr_particle_blood_init.gml</script>
       <script>scripts\scr_enemy_stall_state.gml</script>
+      <script>scripts\scr_particle_slime_init.gml</script>
       <script>scripts\scr_enemy_wander_state.gml</script>
       <script>scripts\scr_enemy_chase_state.gml</script>
     </scripts>
@@ -163,16 +171,17 @@
     <scripts name="inventory_scripts">
       <script>scripts\scr_equip_item.gml</script>
       <script>scripts\scr_add_item.gml</script>
+      <script>scripts\scr_equip_ranged_weapon.gml</script>
+      <script>scripts\scr_trash_arrow.gml</script>
       <script>scripts\scr_scroll_down.gml</script>
+      <script>scripts\scr_player_has_arrows.gml</script>
       <script>scripts\scr_scroll_up.gml</script>
       <script>scripts\scr_trash_item.gml</script>
     </scripts>
     <script>scripts\scr_take_damage_flash.gml</script>
     <script>scripts\scr_animation_hit_frame.gml</script>
     <script>scripts\scr_make_it_day.gml</script>
-    <script>scripts\scr_particle_blood_init.gml</script>
-    <script>scripts\scr_particle_slime_init.gml</script>
-    <script>scripts\scr_equip_ranged_weapon.gml</script>
+    <script>scripts\scr_restore_health.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font0</font>
@@ -185,6 +194,7 @@
       <object>objects\obj_player_stats</object>
       <object>objects\obj_dash_effect</object>
       <object>objects\obj_input</object>
+      <object>objects\obj_inventory_gui</object>
       <object>objects\obj_inventory</object>
     </objects>
     <object>objects\obj_view</object>
@@ -226,10 +236,9 @@
     </objects>
     <objects name="Parent classes">
       <object>objects\obj_wall</object>
+      <object>objects\obj_pick_up</object>
       <object>objects\obj_lifeform_parent</object>
     </objects>
-    <object>objects\obj_pick_up</object>
-    <object>objects\obj_inventory_gui</object>
     <object>objects\obj_particle_system</object>
   </objects>
   <rooms name="rooms">

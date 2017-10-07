@@ -44,6 +44,30 @@ if(ds_grid_get(myItems, 0, 0) == 0){
 
 
 
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Move up and down alarm
 </string>
           </argument>
         </arguments>
@@ -87,6 +111,31 @@ if(ds_grid_get(myItems, 0, 0) == 0){
     isEmpty = true;
     inventoryEndAt = 0;
 }
+
+
+if(instance_exists(obj_input)){
+    if(obj_input.yaxis &gt; .5 and alarm[0] &lt;= 0){
+        scr_scroll_down();
+        alarm[0] = room_speed/6;
+    } else if(obj_input.yaxis &lt; -.5 and alarm[0] &lt;= 0){
+        scr_scroll_up();
+        alarm[0] = room_speed/6;
+    }
+    /// Use item
+    if(obj_input.use_item_key){
+        if(ds_grid_get(playerInventory, 7, itemSelected)){
+            script_execute(ds_grid_get(playerInventory, 4, itemSelected));
+        } else {
+            script_execute(ds_grid_get(playerInventory, 4, itemSelected));
+            scr_trash_item();
+        }
+    }
+
+}
+
+
+
+
 </string>
           </argument>
         </arguments>
@@ -118,18 +167,22 @@ draw_text(bbox_left + textBorder, bbox_top + textBorder, "Image");
 draw_text(bbox_left + 60, bbox_top + textBorder, "Name");
 draw_text(bbox_left + 100, bbox_top + textBorder, "Amount");
 
-itemLeftStart = bbox_left + 60;
+itemLeftStart = bbox_left + 55;
 itemTopStart = bbox_top + 36;
 
 for(i = 0; i &lt; inventoryEndAt; i++){
     for(j = 0; j &lt; playerInventoryWidth; j++){
         inventoryOnScreen = i;
         if(j == 0){
-            draw_text(itemLeftStart, itemTopStart + (i * 16), ds_grid_get(myItems, 0, i + scrolledAmount));
+            draw_text(itemLeftStart, itemTopStart + (i * 16) + 4, ds_grid_get(myItems, 0, i + scrolledAmount));
         } else if(j == 1){
-            draw_text(itemLeftStart + 58, itemTopStart + (i * 16), ds_grid_get(myItems, 1, i + scrolledAmount));
+            draw_text(itemLeftStart + 62, itemTopStart + (i * 16) + 4, ds_grid_get(myItems, 1, i + scrolledAmount));
         } else if(j == 3){
-            draw_sprite(ds_grid_get(myItems, j, i + scrolledAmount), 0, bbox_left + 40, itemTopStart + (i * 16) + 8);
+            draw_sprite(ds_grid_get(myItems, 3, i + scrolledAmount), 0, bbox_left + 40, itemTopStart + (i * 16) + 8);
+        } else if(j == 9){
+            if(ds_grid_get(myItems, 9, i  + scrolledAmount)){
+                draw_text(itemLeftStart - 5, itemTopStart + (i * 16) + 4, "&gt;");
+            }
         }
     }
 }
@@ -194,62 +247,7 @@ scr_trash_item();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Use item
-if(!ds_grid_get(playerInventory, 7, itemSelected)){
-    script_execute(ds_grid_get(playerInventory, 4, itemSelected));
-} else {
-    script_execute(ds_grid_get(playerInventory, 4, itemSelected));
-    scr_trash_item();
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="87">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Scroll up
-scr_scroll_up();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="83">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Scroll down
-scr_scroll_down();
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>

@@ -1,4 +1,4 @@
-/// scr_add_item(DSGrid, String, Int, String, Sprite, Script, Sprite, Int, Boolean);
+/// scr_add_item(DSGrid, String, Int, String, Sprite, Script, Sprite, Int, Boolean, Int, Boolean);
 /// @description Add an item to a grid
 /// @argument0 DSGrid grid_to_add
 /// @argument1 String item_name
@@ -9,6 +9,7 @@
 /// @argument6 Sprite ingame
 /// @argument7 Int bonusDamage
 /// @argument8 Boolean isEquippable
+/// @argument9 Int GlowSize
 
 gridToAddTo = argument0;
 newItemName = argument1;
@@ -19,6 +20,8 @@ newItemScript = argument5;
 newItemSpriteInGame = argument6;
 newItemBonusDamage = argument7;
 newItemIsEquippable = argument8;
+newItemGlowSize = argument9;
+newItemIsEquipped = argument10;
 
 //Case 1 - Item is already in the inventory
 for(i = 0; i < ds_grid_height(gridToAddTo); i++){
@@ -41,5 +44,7 @@ ds_grid_set(gridToAddTo, 4, newItemSpot, newItemScript);
 ds_grid_set(gridToAddTo, 5, newItemSpot, newItemSpriteInGame);
 ds_grid_set(gridToAddTo, 6, newItemSpot, newItemBonusDamage);
 ds_grid_set(gridToAddTo, 7, newItemSpot, newItemIsEquippable);
+ds_grid_set(gridToAddTo, 8, newItemSpot, newItemGlowSize);
+ds_grid_set(gridToAddTo, 9, newItemSpot, newItemIsEquipped);
 
 return true;

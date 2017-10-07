@@ -2,10 +2,10 @@
 <sound>
   <kind>0</kind>
   <extension>.wav</extension>
-  <origname>sound\audio\snd_player_takes_damage.wav</origname>
+  <origname>sound\audio\snd_player_dashes.wav</origname>
   <effects>0</effects>
   <volume>
-    <volume>0.6</volume>
+    <volume>1</volume>
   </volume>
   <pan>0</pan>
   <bitRates>
@@ -21,7 +21,7 @@
     <bitDepth>16</bitDepth>
   </bitDepths>
   <preload>-1</preload>
-  <data>snd_player_takes_damage.wav</data>
+  <data>snd_player_dashes.wav</data>
   <compressed>0</compressed>
   <streamed>0</streamed>
   <uncompressOnLoad>0</uncompressOnLoad>

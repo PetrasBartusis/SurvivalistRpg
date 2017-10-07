@@ -70,6 +70,22 @@ audio_play_sound(snd_enemy_die, 5, false);
 if(scr_chance(.5)){
     instance_create(x+random_range(-4,4), y + random_range(-4,4), obj_health);
 }
+
+// Drop an arrow
+if(scr_chance(.3)){
+    var arrow = instance_create(x+random_range(-4,4), y + random_range(-4,4), obj_pick_up);
+    with(arrow){
+        myItemName = "Arrow";
+        myItemAmount = 1;
+        myItemDescription = "An arrow for shooting.";
+        myItemSprite = spr_item_arrow;
+        myItemScript = scr_trash_arrow;
+        myItemSpriteInGame = spr_arrow;
+        myItemBonusDamage = 0;
+        myItemIsEquippable = true;
+        myItemGlowSize = 0;
+    }
+}
 </string>
           </argument>
         </arguments>
