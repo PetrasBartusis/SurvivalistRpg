@@ -93,7 +93,8 @@
         <sprite>sprites\spr_chinlin_shadow</sprite>
       </sprites>
       <sprites name="Treant">
-        <sprite>sprites\spr_treant_left</sprite>
+        <sprite>sprites\spr_treant_move_left</sprite>
+        <sprite>sprites\spr_treant_move_right</sprite>
       </sprites>
     </sprites>
     <sprite>sprites\spr_damage</sprite>
