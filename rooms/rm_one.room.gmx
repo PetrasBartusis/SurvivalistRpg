@@ -171,6 +171,7 @@
     <instance objName="obj_pick_up" x="260" y="188" name="inst_AD336D5A" locked="0" code="myItemName = &quot;Elven bow&quot;;&#xA;myItemAmount = 1;&#xA;myItemDescription = &quot;A fine elven bow.#Bonus damage = 1&quot;;&#xA;myItemSprite = spr_item_elven_bow;&#xA;myItemScript = scr_equip_ranged_weapon;&#xA;myItemSpriteInGame = spr_elven_bow;&#xA;myItemBonusDamage = 1;&#xA;myItemIsEquippable = true;&#xA;myItemGlowSize = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tree" x="472" y="136" name="inst_3D8E9782" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tree" x="660" y="288" name="inst_E1C1100D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_treant" x="964" y="204" name="inst_DF0D2861" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_dark_grass_patch" x="392" y="296" w="128" h="128" xo="0" yo="0" id="10000050" name="inst_C83BF32C" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

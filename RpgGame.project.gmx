@@ -241,6 +241,7 @@
       <object>objects\obj_lifeform_parent</object>
     </objects>
     <object>objects\obj_particle_system</object>
+    <object>objects\obj_treant</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_one</room>
