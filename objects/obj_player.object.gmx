@@ -350,7 +350,7 @@ persistent = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Draw shadow
+            <string>/// Draw shadow and weapons
 draw_sprite(spr_player_shadow, image_index, x, y);
 scr_take_damage_flash();
 </string>

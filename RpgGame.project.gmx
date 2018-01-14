@@ -143,6 +143,7 @@
       <scripts name="helper_scripts">
         <script>scripts\scr_get_input.gml</script>
       </scripts>
+      <script>scripts\scr_move_weapon_scr.gml</script>
     </scripts>
     <scripts name="enemy_scripts">
       <scripts name="enemy_helper_scripts">
@@ -197,6 +198,7 @@
       <object>objects\obj_input</object>
       <object>objects\obj_inventory_gui</object>
       <object>objects\obj_inventory</object>
+      <object>objects\obj_weapon_sheathed</object>
     </objects>
     <object>objects\obj_view</object>
     <object>objects\obj_damage</object>
