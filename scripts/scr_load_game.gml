@@ -30,6 +30,8 @@ with (obj_player_stats){
     maxexpr = save_data[? "maxexpr"];
     level = save_data[? "level"];
     attack = save_data[? "attack"];
+    inventory = save_data[? "inventory"];
+    playerInventory = ds_grid_read(0, inventory);
 }
 
 ds_map_destroy(save_data);

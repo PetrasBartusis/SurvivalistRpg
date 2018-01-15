@@ -18,6 +18,7 @@ with(obj_player_stats){
     save_data[? "maxexpr"] = maxexpr;
     save_data[? "level"] = level;
     save_data[? "attack"] = attack;
+    save_data[? "inventory"] = ds_grid_write(playerInventory);
 }
 
 var save_string = json_encode(save_data);
