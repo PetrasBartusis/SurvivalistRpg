@@ -34,6 +34,15 @@ expr = 0;
 maxexpr = 3;
 level = 1;
 attack = 1;
+draw_set_colour(c_gray);
+isPaused = false;
+//health bar colors
+hpColor = make_color_hsv(9, 77, 100);
+hpDarkColor = make_color_hsv(9, 77, 76);
+staminaColor = make_color_hsv(131, 95, 100);
+staminaDarkColor = make_color_hsv(131, 95, 62);
+xpColor = make_color_hsv(282, 57, 100);
+xpDarkColor = make_color_hsv(282, 57, 46);
 
 // Get the player's xstart and ystart
 if(instance_exists(obj_player)){
@@ -113,7 +122,9 @@ if(obj_input.pause_key){
         previous_room = room;
         room_persistent = true;
         room_goto(rm_pause);
+        isPaused = true;
     } else {
+        isPaused = false;
         room_goto(previous_room);
     }
     //set it back to false so we dont get stuck in room loop
@@ -185,12 +196,18 @@ room_start_action = NEW_ROOM;
           <argument>
             <kind>1</kind>
             <string>/// Draw player's stats
-draw_set_font(font0);
-draw_set_color(c_white);
-draw_text(32,16, "HP: " + string(hp) + "/" + string(maxhp));
-draw_text(32,32, "STAMINA: " + string(stamina) + "/" + string(maxstamina));
-draw_text(32,48, "EXPR: " + string(expr) + "/" + string(maxexpr));
-draw_text(32,64, "LEVEL: " + string(level));
+if(!instance_exists(obj_inventory_gui) and !isPaused){
+    draw_set_font(font0);
+    draw_set_color(c_gray);
+    draw_healthbar(32, 16, 192, 48, hp/maxhp * 100, hpDarkColor, hpColor, hpColor, 0, true, true);
+    draw_text(34,16, "HP: " + string(hp) + "/" + string(maxhp));
+    draw_healthbar(32, 48, 192, 80, stamina/maxstamina * 100, staminaDarkColor, staminaColor, staminaColor, 0, true, true);
+    draw_text(34,48, "ST: " + string(stamina) + "/" + string(maxstamina));
+    draw_healthbar(32, 80, 192, 112, expr/maxexpr * 100, xpDarkColor, xpColor, xpColor, 0, true, true);
+    draw_text(34,80, "EXPR: " + string(expr) + "/" + string(maxexpr));
+    draw_text(34,112, "LEVEL: " + string(level));
+}
+
 </string>
           </argument>
         </arguments>

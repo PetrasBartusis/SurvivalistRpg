@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///Initialise the obj_weapon_mithril_blade
-bonus_weapon_damage = 3;
+bonus_weapon_damage = 2;
 glow_size = 0.7;
 </string>
           </argument>

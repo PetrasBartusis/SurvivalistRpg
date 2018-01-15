@@ -136,6 +136,7 @@
   <scripts name="scripts">
     <scripts name="player_states">
       <script>scripts\scr_move_state.gml</script>
+      <script>scripts\scr_restore_health.gml</script>
       <script>scripts\scr_dash_state.gml</script>
       <script>scripts\scr_attack_state.gml</script>
       <script>scripts\scr_swap_weapons.gml</script>
@@ -164,6 +165,7 @@
       <script>scripts\scr_save_game.gml</script>
       <script>scripts\scr_load_game.gml</script>
       <script>scripts\scr_get_face.gml</script>
+      <script>scripts\scr_animation_hit_frame.gml</script>
     </scripts>
     <scripts name="camera_scripts">
       <script>scripts\scr_sleep_ms.gml</script>
@@ -181,9 +183,7 @@
       <script>scripts\scr_trash_item.gml</script>
     </scripts>
     <script>scripts\scr_take_damage_flash.gml</script>
-    <script>scripts\scr_animation_hit_frame.gml</script>
     <script>scripts\scr_make_it_day.gml</script>
-    <script>scripts\scr_restore_health.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font0</font>

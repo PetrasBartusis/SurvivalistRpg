@@ -169,6 +169,9 @@ sprite_index = sprite[face, movement];
 // Check for death
 if(obj_player_stats.hp &lt;= 0){
     instance_destroy();
+    with(obj_weapon_sheathed){
+        instance_destroy();
+    }
 }
 
 scr_camera_movement();
