@@ -9,6 +9,7 @@ pause_key = keyboard_check_pressed(vk_escape);
 spell_key = keyboard_check_pressed(ord("Z"));
 swap_key = keyboard_check_pressed(ord("V"));
 inventory_key = keyboard_check_pressed(ord("I"));
+stats_key = keyboard_check_pressed(ord("O"));
 use_item_key = keyboard_check_pressed(vk_enter);
 
 // Get the axis

@@ -210,13 +210,14 @@ with(obj_player_stats){
     expr += expr_to_give;
     if(expr &gt;= maxexpr){
         level += 1;
+        status_points += 3;
         expr = expr - maxexpr;
-        maxexpr *= 2;
-        hp += 2;
+        maxexpr += 2;
+        /*hp += 2;
         maxhp += 2;
         stamina += 2;
         maxstamina += 2;
-        attack += 1;
+        attack += 1;*/
     }
 }
 

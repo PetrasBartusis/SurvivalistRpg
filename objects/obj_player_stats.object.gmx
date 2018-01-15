@@ -34,8 +34,16 @@ expr = 0;
 maxexpr = 3;
 level = 1;
 attack = 1;
+status_points = 0;
 draw_set_colour(c_gray);
 isPaused = false;
+
+//-----
+Stats[STRENGTH] = 1;
+Stats[AGILITY] = 1;
+Stats[DEXTERITY] = 1;
+Stats[VITALITY] = 1;
+//---
 //health bar colors
 hpColor = make_color_hsv(9, 77, 100);
 hpDarkColor = make_color_hsv(9, 77, 76);
@@ -130,6 +138,19 @@ if(obj_input.pause_key){
     //set it back to false so we dont get stuck in room loop
     obj_input.pause_key = false;
 }
+
+/// Create the inventory on screen
+if(instance_exists(obj_input) and obj_input.stats_key){
+    if(!instance_exists(obj_stats_gui)){
+        statsDisplay = instance_create(obj_player.x, obj_player.y, obj_stats_gui);
+        with(statsDisplay){
+            x = sprite_get_xoffset(sprite_index);
+            y = room_height - sprite_get_yoffset(sprite_index);
+        }
+    } else {
+        instance_destroy(statsDisplay);
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -196,7 +217,8 @@ room_start_action = NEW_ROOM;
           <argument>
             <kind>1</kind>
             <string>/// Draw player's stats
-if(!instance_exists(obj_inventory_gui) and !isPaused){
+if(!instance_exists(obj_inventory_gui) and 
+    !instance_exists(obj_stats_gui) and !isPaused){
     draw_set_font(font0);
     draw_set_color(c_gray);
     draw_healthbar(32, 16, 192, 48, hp/maxhp * 100, hpDarkColor, hpColor, hpColor, 0, true, true);

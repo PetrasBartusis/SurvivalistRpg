@@ -35,5 +35,5 @@ if(scr_animation_hit_frame(3)){
     audio_play_sound(snd_sword_attack, 8, false);
     var damage = instance_create(xx, yy, obj_damage);
     damage.creator = id;
-    damage.damage = obj_player_stats.attack + obj_player.bonus_weapon_damage;
+    damage.damage = obj_player_stats.Stats[STRENGTH] + obj_player.bonus_weapon_damage;
 }

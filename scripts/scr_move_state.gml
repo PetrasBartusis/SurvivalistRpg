@@ -33,14 +33,14 @@ if(obj_input.dash_key){
     }
 }
 
-//check if player is dashing
+//check if player is attacking
 if(obj_input.attack_key){
     //start attack animation from the start
     image_index = 0;
     state = scr_attack_state;
 }
 
-//check if player is dashing
+//check if player is shooting
 if(obj_input.spell_key){
     //start shoot animation from the start
     image_index = 0;
@@ -66,7 +66,8 @@ if(obj_input.swap_key){
 dir = point_direction(0, 0, obj_input.xaxis, obj_input.yaxis);
 
 // Get the length
-if(obj_input.xaxis == 0 and obj_input.yaxis == 0 or instance_exists(obj_inventory_gui)){
+if(obj_input.xaxis == 0 and obj_input.yaxis == 0 or instance_exists(obj_inventory_gui)
+    or instance_exists(obj_stats_gui)){
     len = 0;
     } else {
     len = spd;

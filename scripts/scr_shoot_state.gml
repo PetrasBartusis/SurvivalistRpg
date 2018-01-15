@@ -38,7 +38,7 @@ if(scr_animation_hit_frame(2)){
     p.creator = id;
     p.dir = face * 90;
     p.image_angle = p.dir;
-    p.damage = 1 + bonus_ranged_weapon_damage;
+    p.damage = obj_player_stats.Stats[DEXTERITY] + bonus_ranged_weapon_damage;
     with(p){
         physics_apply_impulse(x+xoffset, y+yoffset, xforce, yforce);
     }

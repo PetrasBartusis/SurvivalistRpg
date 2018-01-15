@@ -197,6 +197,7 @@
       <object>objects\obj_dash_effect</object>
       <object>objects\obj_input</object>
       <object>objects\obj_inventory_gui</object>
+      <object>objects\obj_stats_gui</object>
       <object>objects\obj_inventory</object>
       <object>objects\obj_weapon_sheathed</object>
     </objects>
