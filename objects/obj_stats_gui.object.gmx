@@ -85,7 +85,7 @@ menu_index = 0;
 depth = -y - 2000;
 //move inventory so the player can see it
 if(instance_exists(obj_player)){
-    x = view_xview[0];
+    x = view_xview[0]+240;
     y = view_yview[0];
 }
 

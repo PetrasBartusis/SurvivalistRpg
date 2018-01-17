@@ -278,6 +278,9 @@ if(room_exists(other.new_room)) {
     room_goto(other.new_room);
     x = other.new_x;
     y = other.new_y;
+    if(instance_exists(obj_night_cycle)){
+        obj_night_cycle.depth -= 10000;
+    }
 }
 </string>
           </argument>

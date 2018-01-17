@@ -231,6 +231,8 @@ if(!instance_exists(obj_inventory_gui) and
     draw_healthbar(32, 80, 192, 112, expr/maxexpr * 100, xpDarkColor, xpColor, xpColor, 0, true, true);
     draw_text(34,80, "EXPR: " + string(expr) + "/" + string(maxexpr));
     draw_text(34,112, "LEVEL: " + string(level));
+    draw_text(34,142, "X: " + string(obj_player.x));
+    draw_text(34,174, "Y: " + string(obj_player.y));
 }
 
 </string>
