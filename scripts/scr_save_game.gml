@@ -18,8 +18,14 @@ with(obj_player_stats){
     save_data[? "maxexpr"] = maxexpr;
     save_data[? "level"] = level;
     save_data[? "attack"] = attack;
+    save_data[? "strength"] = Stats[STRENGTH];
+    save_data[? "agility"] = Stats[AGILITY];
+    save_data[? "dexterity"] = Stats[DEXTERITY];
+    save_data[? "vitality"] = Stats[VITALITY];
+    save_data[? "status_points"] = status_points;
     save_data[? "inventory"] = ds_grid_write(playerInventory);
 }
+
 
 var save_string = json_encode(save_data);
 ds_map_destroy(save_data);

@@ -30,8 +30,13 @@ with (obj_player_stats){
     maxexpr = save_data[? "maxexpr"];
     level = save_data[? "level"];
     attack = save_data[? "attack"];
+    Stats[STRENGTH] = save_data[? "strength"];
+    Stats[AGILITY] = save_data[? "agility"];
+    Stats[DEXTERITY] = save_data[? "dexterity"];
+    Stats[VITALITY] = save_data[? "vitality"];
+    status_points = save_data[? "status_points"];
     inventory = save_data[? "inventory"];
     playerInventory = ds_grid_read(0, inventory);
 }
-
-ds_map_destroy(save_data);
+ds_map_destroy(save_data); 
+wasLoaded = true;

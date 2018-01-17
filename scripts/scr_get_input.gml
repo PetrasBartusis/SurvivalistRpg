@@ -6,7 +6,7 @@ down_key = keyboard_check(vk_down);
 dash_key = keyboard_check_pressed(ord("C"));
 attack_key = keyboard_check_pressed(ord("X"));
 pause_key = keyboard_check_pressed(vk_escape);
-spell_key = keyboard_check_pressed(ord("Z"));
+arrow_key = keyboard_check_pressed(ord("Z"));
 swap_key = keyboard_check_pressed(ord("V"));
 inventory_key = keyboard_check_pressed(ord("I"));
 stats_key = keyboard_check_pressed(ord("O"));
@@ -24,7 +24,7 @@ if(gamepad_is_connected(0)){
     dash_key = gamepad_button_check_pressed(0, gp_face1);
     attack_key = gamepad_button_check_pressed(0, gp_face3);
     pause_key = gamepad_button_check_pressed(0, gp_start);
-    spell_key = gamepad_button_check_pressed(0, gp_face2);
+    arrow_key = gamepad_button_check_pressed(0, gp_face2);
     swap_key = gamepad_button_check_pressed(0, gp_face4);
     inventory_key = gamepad_button_check_pressed(0, gp_select);
     use_item_key = gamepad_button_check_pressed(0, gp_shoulderrb);

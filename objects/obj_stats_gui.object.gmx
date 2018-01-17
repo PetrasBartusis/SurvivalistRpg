@@ -109,7 +109,7 @@ if(instance_exists(obj_input) and alarm[0] &lt;= 0){
         alarm[0] = room_speed/6;
     }
     
-    if(obj_input.dash_key and obj_player_stats.status_points &gt; 0){
+    if(obj_input.use_item_key and obj_player_stats.status_points &gt; 0){
         switch(menu_index){
             case 0:
                 obj_player_stats.Stats[STRENGTH] += 1;
@@ -120,10 +120,10 @@ if(instance_exists(obj_input) and alarm[0] &lt;= 0){
                 break;
             case 2:
                 obj_player_stats.Stats[DEXTERITY] += 1;
-                
                 break;
             case 3:
                 obj_player_stats.Stats[VITALITY] += 1;
+                obj_player_stats.hp += 2;
                 obj_player_stats.maxhp += 2;
                 break;
             default:

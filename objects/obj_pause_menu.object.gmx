@@ -112,6 +112,7 @@ if(alarm[0] &lt;= 0){
                 break;
             case 2:
                 obj_player_stats.room_start_action = LOAD;
+                obj_player_stats.isPaused = false;
                 room_goto(obj_player_stats.previous_room);
                 break;
             case 3:
@@ -151,6 +152,7 @@ if(alarm[0] &lt;= 0){
 var xx = display_get_gui_width()/2;
 var yy = display_get_gui_height()/2;
 
+draw_set_font(font0);
 draw_set_halign(fa_center);
 draw_text(xx, yy - 64, title);
 

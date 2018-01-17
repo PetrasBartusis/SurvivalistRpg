@@ -41,7 +41,7 @@ if(obj_input.attack_key){
 }
 
 //check if player is shooting
-if(obj_input.spell_key){
+if(obj_input.arrow_key){
     //start shoot animation from the start
     image_index = 0;
     if(scr_player_has_arrows()){

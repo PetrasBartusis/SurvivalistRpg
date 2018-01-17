@@ -32,7 +32,7 @@ if(instance_number(obj_player) &gt; 1) instance_destroy();
 event_inherited();
 
 //physics values
-spd = 2;
+spd = 2.5;
 hspd = 0;
 vspd = 0;
 len = 0;
